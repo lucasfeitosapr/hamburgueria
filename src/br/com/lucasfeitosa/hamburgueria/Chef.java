@@ -103,6 +103,7 @@ public class Chef {
     }
 
     private boolean additionalIsValid(List<String> additionals) {
+        if(additionals.isEmpty()) return true;
         return additionals.stream().anyMatch(this.additionals.stream().collect(Collectors.toSet())::contains);
     }
 }
