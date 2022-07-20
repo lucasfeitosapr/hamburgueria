@@ -10,28 +10,28 @@ public class Chef {
     private List<String> baseIngredients = new ArrayList<>();
     private final List<String> additionals = new ArrayList<>(Arrays.asList(BACON, TOMATE, ONION, PICLES));
 
-    public void cookBurguer(Builder builder, List<String> order) throws Exception {
+    public void cookBurguer(IHamburguerBuilder builder, List<String> order) throws Exception {
         this.baseIngredients = new ArrayList<String>(Arrays.asList(BREAD, CHEESE, HAMBURGUER, MAYONNAISE));
         Set<String> ingredients = this.applyObservations(order);
         builder.setBurguerType(BurguerType.X_BURGUER);
         builder.setIngredients(ingredients);
     }
 
-    public void cookXsalada(Builder builder, List<String> order) throws Exception {
+    public void cookXsalada(IHamburguerBuilder builder, List<String> order) throws Exception {
         this.baseIngredients = new ArrayList<String>(Arrays.asList(BREAD, CHEESE, HAMBURGUER, MAYONNAISE, TOMATE, ONION));
         Set<String> ingredients = this.applyObservations(order);
         builder.setBurguerType(BurguerType.X_SALADA);
         builder.setIngredients(ingredients);
     }
 
-    public void cookXbacon(Builder builder, List<String> order) throws Exception {
+    public void cookXbacon(IHamburguerBuilder builder, List<String> order) throws Exception {
         this.baseIngredients =  new ArrayList<String>(Arrays.asList(BREAD, CHEESE, HAMBURGUER, BACON, TOMATE, MAYONNAISE));
         Set<String> ingredients = this.applyObservations(order);
         builder.setBurguerType(BurguerType.X_BACON);
         builder.setIngredients(ingredients);
     }
 
-    public void cookXtudo(Builder builder, List<String> order) throws Exception {
+    public void cookXtudo(IHamburguerBuilder builder, List<String> order) throws Exception {
         this.baseIngredients =  new ArrayList<String>(Arrays.asList(BREAD, CHEESE, HAMBURGUER, BACON, TOMATE, ONION, MAYONNAISE));
         Set<String> ingredients = this.applyObservations(order);
         builder.setBurguerType(BurguerType.X_TUDO);
@@ -92,6 +92,12 @@ public class Chef {
 
     }
 
+    /**
+     * Filters a list, removing all "-" chars from items and returning a new list with
+     * ingredients to remove.
+     * @param observations list with observations
+     * @return a filtered list with ingredients to remove, example: [bacon, maionese, picles]
+     */
     private List<String> filterIngredientsToRemove(List<String> observations) {
         List<String> toRemove = observations.stream().filter(item -> item.startsWith("-")).collect(Collectors.toList());
 

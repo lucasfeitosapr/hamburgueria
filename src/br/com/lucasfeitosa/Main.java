@@ -2,7 +2,7 @@ package br.com.lucasfeitosa;
 
 import br.com.lucasfeitosa.hamburgueria.BurguerType;
 import br.com.lucasfeitosa.hamburgueria.Chef;
-import br.com.lucasfeitosa.hamburgueria.HamburguerBuilder;
+import br.com.lucasfeitosa.hamburgueria.HamburguerBuilderImpl;
 
 import java.util.*;
 
@@ -31,7 +31,7 @@ public class Main {
         List<String> observations = pedido.subList(1, pedido.size());
 
         Chef chef = new Chef();
-        HamburguerBuilder builder = new HamburguerBuilder();
+        HamburguerBuilderImpl builder = new HamburguerBuilderImpl();
 
         try {
             switch (burguerType) {

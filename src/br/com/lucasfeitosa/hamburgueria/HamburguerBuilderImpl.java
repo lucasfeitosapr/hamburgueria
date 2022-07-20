@@ -2,7 +2,7 @@ package br.com.lucasfeitosa.hamburgueria;
 
 import java.util.Set;
 
-public class HamburguerBuilder implements Builder {
+public class HamburguerBuilderImpl implements IHamburguerBuilder {
 
     private Set<String> ingredients;
     private BurguerType type;
