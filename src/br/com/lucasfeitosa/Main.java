@@ -4,17 +4,19 @@ import br.com.lucasfeitosa.hamburgueria.BurguerType;
 import br.com.lucasfeitosa.hamburgueria.Chef;
 import br.com.lucasfeitosa.hamburgueria.HamburguerBuilder;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 import static br.com.lucasfeitosa.hamburgueria.BurguerType.findByValue;
 
 public class Main {
 
     public static void main(String[] args) {
-        String response = processOrder("");
+
+        Scanner sc= new Scanner(System.in);
+        System.out.print("Insira o pedido: ");
+        String order = sc.nextLine();
+
+        String response = processOrder(order);
         System.out.println(response);
     }
 
